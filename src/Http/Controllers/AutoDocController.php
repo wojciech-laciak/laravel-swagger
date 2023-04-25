@@ -44,6 +44,21 @@ class AutoDocController extends BaseController
 
         $content = file_get_contents($filePath);
 
-        return response($content)->header('Content-Type', $request->getAcceptableContentTypes());
+        return response($content)->header('Content-Type', self::mapFileExtensionToMimeType($file));
+    }
+
+    private function mapFileExtensionToMimeType($file) {
+        $extension = explode('.', $file)[1];
+
+        switch ($extension) {
+            case 'js':
+                return 'text/javascript';
+            case 'css':
+                return 'text/css';
+            case 'png':
+                return 'image/png';
+            default:
+                throw new Exception('Unhandled file extension');
+        }
     }
 }
