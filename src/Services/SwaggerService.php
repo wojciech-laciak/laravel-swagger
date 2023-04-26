@@ -163,7 +163,7 @@ class SwaggerService
             case 'laravel':
                 return [
                     'type' => 'apiKey',
-                    'name' => 'Cookie',
+                    'name' => 'apikey',
                     'in' => 'header'
                 ];
             default:
