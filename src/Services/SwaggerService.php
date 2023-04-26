@@ -582,7 +582,7 @@ class SwaggerService
                 $header = $this->request->header('authorization');
                 break;
             case 'laravel':
-                $header = $this->request->cookie('__ym_uid');
+                $header = $this->request->header('apikey');
                 break;
         }
 
